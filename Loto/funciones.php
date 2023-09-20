@@ -490,7 +490,7 @@
 		
 		if (count($numeroPremiado) != 0)
 		{		
-			echo "<div class='cajaresultado'>";
+			echo "<div class='cajaresultado' style='padding-top:2%;'>";
 			echo "<table class='tablaresultados'>";
 			
 			if ($nombreCategoria=='')
@@ -539,7 +539,7 @@
 				$sp=strlen($premio);
 
 				// Damos formato al premio
-				$p=number_format($premio, 2, '.', ',');
+				$p=$premio;
 
 				if ($n=='0')
 				{	
@@ -613,7 +613,7 @@
 					$sp=strlen($premio);
 
 					// Damos formato al premio
-					$p=number_format($premio, 2, '.', ',');
+					$p=$premio;
 
 					if ($n=='0')
 					{	
@@ -713,8 +713,7 @@
 			echo "<td class='tdloteriaNacional' style='font-size: 25px; text-align:right;'><strong> $valores[$i] </strong></td>";
 			$i = $i+1;
 			$p = $valores[$i];
-			if (is_numeric($p))
-			{		$p = number_format($p, 2, '.', '');		}
+			
 			echo "<td class='tdloteriaNacional' style='text-align:right;'> $p </td>";
 			echo "</tr>";
 		
@@ -990,7 +989,7 @@
 		
 		if (count($numeroPremiado) != 0)
 		{		
-			echo "<div class='cajaresultado'>";
+			echo "<div class='cajaresultado' style='padding-top:2%;'>";
 			echo "<table class='tablaresultados'>";
 			
 			if ($nombreCategoria=='')
@@ -1006,8 +1005,7 @@
 				echo "<tr>";
 				echo "<td class='tdGordoNavidad' style='font-size: 25px;'><strong> $numeroPremiado[$i]</strong></td>";
 				
-				if (is_numeric($p))
-				{		$p= number_format($p, 2, '.', ','); 	}
+				
 				echo "<td class='tdGordoNavidad'> $p </td>";
 				echo "</tr>";
 			}

@@ -193,7 +193,7 @@
 		}	
 	}
 
-	function MostrarSorteos($idFamilia)
+	function MostrarSorteos($idFamilia,$pagina_activa = NULL)
 	{
 		// Función que permite obtener los sorteos de la familia de la LAE guardados en la BBDD
 
@@ -207,12 +207,10 @@
 			while (list($idTipo_sorteo, $nombre, $tabla) = $resultado->fetch_row())
 			{
 				$pag = $tabla;
-				$pag .= ".php";
 				
-				if($nombre=='El Nino'){
-					$nombre='El Niño';
-				}
-				echo "<a href='$pag'> $nombre </a>";
+				$pag .= ".php";
+				echo "<a href='$pag' class='" . isActive($nombre, $pagina_activa) . "'>$nombre</a>";
+
 			}
 		}
 	}
@@ -8375,6 +8373,14 @@ function InsertarSorteoLototurf($c1, $c2, $c3, $c4, $c5, $c6, $caballo, $reinteg
 		// Se ha registrado en la primera tabla, realizamos el segundo registro para el que necesitamos el identificador del registro anterior
 		$data .= " 00:00:00";
 		$idSorteo=ObtenerSorteo(10, $data);
+		$array = [$c1, $c2, $c3, $c4, $c5, $c6];
+		sort($array);
+		$c1 = $array[0];
+		$c2 = $array[1];
+		$c3 = $array[2];
+		$c4 = $array[3];
+		$c5 = $array[4];
+		$c6 = $array[5];
 		if ($idSorteo != -1) {
 			$consulta = "INSERT INTO lototurf (idSorteo, c1, c2, c3, c4, c5, c6, caballo, reintegro) VALUES ($idSorteo, '$c1','$c2','$c3','$c4','$c5','$c6','$caballo', '$reintegro')";
 			if (mysqli_query($GLOBALS["conexion"], $consulta)){		
@@ -8394,7 +8400,14 @@ function ActualizarSorteoLototurf($idSorteo, $c1, $c2, $c3, $c4, $c5, $c6, $caba
 
 	// Parametros de entrada: los valores del sorteo
 	// Parametros de salida: la función devuelve el identificador si se ha insertado correctamente i -1 si se ha producido un error
-
+	$array = [$c1, $c2, $c3, $c4, $c5, $c6];
+		sort($array);
+		$c1 = $array[0];
+		$c2 = $array[1];
+		$c3 = $array[2];
+		$c4 = $array[3];
+		$c5 = $array[4];
+		$c6 = $array[5];
 	// Hemos de actualizar la tabla sorteo y la tabla ordinario
 	$consulta = "UPDATE sorteos SET fecha='$data' WHERE idSorteos=$idSorteo";
 	if (mysqli_query($GLOBALS["conexion"], $consulta))

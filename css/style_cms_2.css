@@ -843,5 +843,8 @@ select.cms
 	padding:0.5em;
 	background-color:#E9E9E9;
 }
-
+a.active {
+  text-decoration: underline; /* Puedes cambiar esto según tus preferencias */
+  /* Otros estilos para resaltar la pestaña activa */
+}
 

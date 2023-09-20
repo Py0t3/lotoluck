@@ -190,7 +190,7 @@
 		}	
 	}
 
-	function MostrarSorteos($idFamilia)
+	function MostrarSorteos($idFamilia,$pagina_activa = NULL)
 	{
 		// Función que permite obtener los sorteos de la familia de la LAE guardados en la BBDD
 
@@ -204,8 +204,10 @@
 			while (list($idTipo_sorteo, $nombre, $tabla) = $resultado->fetch_row())
 			{
 				$pag = $tabla;
+				
 				$pag .= ".php";
-				echo "<a href='$pag'> $nombre </a>";
+				echo "<a href='$pag' class='" . isActive($nombre, $pagina_activa) . "'>$nombre</a>";
+
 			}
 		}
 	}

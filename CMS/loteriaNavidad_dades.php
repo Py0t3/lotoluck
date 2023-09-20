@@ -4,6 +4,7 @@
 -->
 
 <?php
+	$pagina_activa = "Loteria de Navidad";
 // Obtenemos el sorteo que se ha de mostrar
 	$idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que nos permiten conectarnos a la BBDD
