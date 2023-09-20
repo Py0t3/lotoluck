@@ -10,7 +10,7 @@
 
 	// Conectamos con la BBDD
 	$conexion = mysqli_connect($servidor, $user, $pwd, $BBDD);
-	
+	$conexion->set_charset("utf8mb4");
 	// Comprovamos que la conexión se ha establecido correctamente
 	if (!$conexion)
 	{
