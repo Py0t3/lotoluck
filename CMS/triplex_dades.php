@@ -4,6 +4,7 @@
 -->
 
 <?php
+	$pagina_activa = "Triplex";
 // Obtemos el sorteo que se ha de mostrar
 	$idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
@@ -595,17 +596,18 @@
 					break;
 				}
 				console.log($('#'+tableToApply+' input[value="ultima cifra"]'))
-				$('#'+tableToApply+' input[value="Triplex"]').closest('tr').find('.numeros').val(c1+''+c2+''+c3)
-				$('#'+tableToApply+' input[value="triplex"]').closest('tr').find('.numeros').val(c1+''+c2+''+c3)
-				$('#'+tableToApply+' input[value="3 cifras del triplex en cualquier orden"]').closest('tr').find('.numeros').val(numberCombination.join(' | '))
-				$('#'+tableToApply+' input[value="2 primeras cifras"]').closest('tr').find('.numeros').val(c1+''+c2+'_')
-				$('#'+tableToApply+' input[value="2 ultimas cifras"]').closest('tr').find('.numeros').val('_'+c2+''+c3)
-				$('#'+tableToApply+' input[value="Primera Cifra"]').closest('tr').find('.numeros').val(c1+'__')
-				$('#'+tableToApply+' input[value="Primera cifra"]').closest('tr').find('.numeros').val(c1+'__')
-				$('#'+tableToApply+' input[value="primera cifra"]').closest('tr').find('.numeros').val(c1+'__')
-				$('#'+tableToApply+' input[value="Ultima Cifra"]').closest('tr').find('.numeros').val('__'+c3)
-				$('#'+tableToApply+' input[value="Ultima cifra"]').closest('tr').find('.numeros').val('__'+c3)
-				$('#'+tableToApply+' input[value="ultima cifra"]').closest('tr').find('.numeros').val('__'+c3)
+				$('#'+tableToApply+' input[value="1"]').closest('tr').find('.numeros').val(c1+''+c2+''+c3)
+				$('#'+tableToApply+' input[value="1"]').closest('tr').find('.numeros').val(c1+''+c2+''+c3)
+				$('#'+tableToApply+' input[value="2"]').closest('tr').find('.numeros').val(numberCombination.join(' | '))
+				$('#'+tableToApply+' input[value="2"]').closest('tr').find('.numeros').val(numberCombination.join(' | '))
+				$('#'+tableToApply+' input[value="3"]').closest('tr').find('.numeros').val(c1+''+c2+'_')
+				$('#'+tableToApply+' input[value="4"]').closest('tr').find('.numeros').val('_'+c2+''+c3)
+				$('#'+tableToApply+' input[value="5"]').closest('tr').find('.numeros').val(c1+'__')
+				$('#'+tableToApply+' input[value="5"]').closest('tr').find('.numeros').val(c1+'__')
+				$('#'+tableToApply+' input[value="5"]').closest('tr').find('.numeros').val(c1+'__')
+				$('#'+tableToApply+' input[value="6"]').closest('tr').find('.numeros').val('__'+c3)
+				$('#'+tableToApply+' input[value="6"]').closest('tr').find('.numeros').val('__'+c3)
+				$('#'+tableToApply+' input[value="6"]').closest('tr').find('.numeros').val('__'+c3)
 				
 			})
 			function permutator(inputArr) {

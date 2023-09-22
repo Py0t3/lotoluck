@@ -4,6 +4,7 @@
 -->
 
 <?php
+	$pagina_activa = "Mi Dia";
     // Obtemos el sorteo que se ha de mostrar
 	$idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD

@@ -3,6 +3,7 @@
 -->
 
 <?php
+	$pagina_activa = "Trio";
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms_3.php";
 ?>

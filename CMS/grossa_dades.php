@@ -4,6 +4,7 @@
 -->
 
 <?php
+	$pagina_activa = "La Grossa";
 	$idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms_3.php";
@@ -949,29 +950,28 @@
 						r2 = ''
 					break;
 				}
-				$('#'+tableToApply+' input[value="Primer premio 5 cifras"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3+''+c4+''+c5)
+				$('#'+tableToApply+' input[value="1"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3+''+c4+''+c5)
 				
 				if(c1 == '0' && c2=='0' && c3 == '0' && c4 == '0' && c5=='0'){
-					$('#'+tableToApply+' input[value="Número anterior al primer premio"]').closest('tr').find('.acertantes').val('99999')
-					$('#'+tableToApply+' input[value="Número posterior al primer premio"]').closest('tr').find('.acertantes').val('00001')
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.acertantes').val('99999')
+					$('#'+tableToApply+' input[value="3"]').closest('tr').find('.acertantes').val('00001')
 				}
 				
 				else if(c1 == '9' && c2=='9' && c3 == '9' && c4 == '9' && c5=='9'){
-					$('#'+tableToApply+' input[value="Número anterior al primer premio"]').closest('tr').find('.acertantes').val('99998')
-					$('#'+tableToApply+' input[value="Número posterior al primer premio"]').closest('tr').find('.acertantes').val('00000')
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.acertantes').val('99998')
+					$('#'+tableToApply+' input[value="3"]').closest('tr').find('.acertantes').val('00000')
 				}
 				else{
-					$('#'+tableToApply+' input[value="Número anterior al primer premio"]').closest('tr').find('.acertantes').val((parseInt(c1+''+c2+''+c3+''+c4+''+c5) - 1).toString().padStart(5,'0'))
-					$('#'+tableToApply+' input[value="Número posterior al primer premio"]').closest('tr').find('.acertantes').val((parseInt(c1+''+c2+''+c3+''+c4+''+c5) + 1).toString().padStart(5,'0'))
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.acertantes').val((parseInt(c1+''+c2+''+c3+''+c4+''+c5) - 1).toString().padStart(5,'0'))
+					$('#'+tableToApply+' input[value="3"]').closest('tr').find('.acertantes').val((parseInt(c1+''+c2+''+c3+''+c4+''+c5) + 1).toString().padStart(5,'0'))
 				}
 				
-				$('#'+tableToApply+' input[value="4 últimas cifras del primer premio"]').closest('tr').find('.acertantes').val('_'+c2+''+c3+''+c4+''+c5)
-				$('#'+tableToApply+' input[value="3 últimas cifras del primer premio"]').closest('tr').find('.acertantes').val('__'+c3+''+c4+''+c5)
-				$('#'+tableToApply+' input[value="2 últimas cifras del primer premio"]').closest('tr').find('.acertantes').val('___'+c4+''+c5)
-				$('#'+tableToApply+' input[value="Última cifra correcta"]').closest('tr').find('.acertantes').val('____'+c5)
-				$('#'+tableToApply+' input[value="última cifra correcta"]').closest('tr').find('.acertantes').val('____'+c5)
-				$('#'+tableToApply+' input[value="Reintegro 2"]').closest('tr').find('.acertantes').val(r1)
-				$('#'+tableToApply+' input[value="Reintegro 3"]').closest('tr').find('.acertantes').val(r2)
+				$('#'+tableToApply+' input[value="4"]').closest('tr').find('.acertantes').val('_'+c2+''+c3+''+c4+''+c5)
+				$('#'+tableToApply+' input[value="5"]').closest('tr').find('.acertantes').val('__'+c3+''+c4+''+c5)
+				$('#'+tableToApply+' input[value="6"]').closest('tr').find('.acertantes').val('___'+c4+''+c5)
+				$('#'+tableToApply+' input[value="7"]').closest('tr').find('.acertantes').val('____'+c5)
+				$('#'+tableToApply+' input[value="8"]').closest('tr').find('.acertantes').val(r1)
+				$('#'+tableToApply+' input[value="9"]').closest('tr').find('.acertantes').val(r2)
 				
 			})
 			function permutator(inputArr) {

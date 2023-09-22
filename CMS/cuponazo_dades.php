@@ -4,6 +4,7 @@
 -->
 
 <?php 
+	$pagina_activa = "Cuponazo";
 	$idSorteo=$_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms_3.php";
@@ -440,16 +441,14 @@
 							serie = ''
 							break;
 					}
-					$('#'+tableToApply+' input[value="5 cifras y Serie"]').closest('tr').find('.series').val(serie)
-					$('#'+tableToApply+' input[value="5 cifras y Serie"]').closest('tr').find('.numeros').val(number)
-					$('#'+tableToApply+' input[value="5 cifras y serie"]').closest('tr').find('.series').val(serie)
-					$('#'+tableToApply+' input[value="5 cifras y serie"]').closest('tr').find('.numeros').val(number)
-					$('#'+tableToApply+' input[value="5 cifras"]').closest('tr').find('.numeros').val(number)
-					$('#'+tableToApply+' input[value="4 cifras primeras y 4 ultimas"]').closest('tr').find('.numeros').val(number.substr(0,4) + '_ | _' + number.substr(number.length - 4))
-					$('#'+tableToApply+' input[value="3 cifras primeras y 3 ultimas"]').closest('tr').find('.numeros').val(number.substr(0,3) + '__ | __' + number.substr(number.length - 3))
-					$('#'+tableToApply+' input[value="2 cifras primeras y 2 ultimas"]').closest('tr').find('.numeros').val(number.substr(0,2) + '___ | ___' + number.substr(number.length - 2))
-					$('#'+tableToApply+' input[value="Cifra primera y cifra ultima"]').closest('tr').find('.numeros').val(number.substr(0,1)+'____ | ____'+ number.substr(number.length - 1))
-					$('#'+tableToApply+' input[value="Cifra primera y ultima cifra"]').closest('tr').find('.numeros').val(number.substr(0,1)+'____ | ____'+ number.substr(number.length - 1))
+				
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.series').val(serie)
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.numeros').val(number)
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.numeros').val(number)
+					$('#'+tableToApply+' input[value="3"]').closest('tr').find('.numeros').val(number.substr(0,4) + '_ | _' + number.substr(number.length - 4))
+					$('#'+tableToApply+' input[value="4"]').closest('tr').find('.numeros').val(number.substr(0,3) + '__ | __' + number.substr(number.length - 3))
+					$('#'+tableToApply+' input[value="5"]').closest('tr').find('.numeros').val(number.substr(0,2) + '___ | ___' + number.substr(number.length - 2))
+					$('#'+tableToApply+' input[value="6"]').closest('tr').find('.numeros').val(number.substr(0,1)+'____ | ____'+ number.substr(number.length - 1))
 					
     			});
 				$(document).on('click','.agregarPremioAdicional',function(e){

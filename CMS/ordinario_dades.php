@@ -4,6 +4,7 @@
 -->
 
 <?php 
+	$pagina_activa = 'Ordinario';
 	if (isset($_GET['idSorteo'])) {
 	   $idSorteo=$_GET['idSorteo'];
    }
@@ -462,49 +463,16 @@
 				  break;
 			  }
 
-			  // Resto de tu código aquí
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("5 cifras y serie") !== -1;
-			  }).closest('tr').find('.series').val(serie);
-
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("5 cifras y serie") !== -1;
-			  }).closest('tr').find('.numeros').val(number);
-
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("5 cifras") !== -1;
-			  }).closest('tr').find('.numeros').val(number);
-
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("4 cifras primeras y 4 ultimas") !== -1;
-			  }).closest('tr').find('.numeros').val(number.substr(0,4) + '_ | _' + number.substr(number.length - 4));
-
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("3 cifras primeras y 3 ultimas") !== -1;
-			  }).closest('tr').find('.numeros').val(number.substr(0,3) + '__ | __' + number.substr(number.length - 3));
-
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("2 cifras primeras y 2 ultimas") !== -1;
-			  }).closest('tr').find('.numeros').val(number.substr(0,2) + '___ | ___' + number.substr(number.length - 2));
-
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("cifra primera y cifra ultima") !== -1;
-			  }).closest('tr').find('.numeros').val(number.substr(0,1)+'____ | ____'+ number.substr(number.length - 1));
-
-			  $('#'+tableToApply+' input').filter(function() {
-				return normalizeString($(this).val()).indexOf("cifra primera y ultima cifra") !== -1;
-			  }).closest('tr').find('.numeros').val(number.substr(0,1)+'____ | ____'+ number.substr(number.length - 1));
-			});
-
-			// Función para normalizar y convertir a minúsculas
-			function normalizeString(input) {
-			  return input.normalize("NFD").toLowerCase().replace(/[\u0300-\u036f]/g, "");
-			}
-
-			$(document).on('change','.descripcion',function(e){
-				
-				$('.numAnDSer').trigger('change')
-			})
+			  $('#'+tableToApply+' input[value="1"]').closest('tr').find('.series').val(serie)
+			  $('#'+tableToApply+' input[value="1"]').closest('tr').find('.numeros').val(number)
+			  $('#'+tableToApply+' input[value="2"]').closest('tr').find('.numeros').val(number)
+			  $('#'+tableToApply+' input[value="3"]').closest('tr').find('.numeros').val(number.substr(0,4) + '_ | _' + number.substr(number.length - 4));
+			  $('#'+tableToApply+' input[value="4"]').closest('tr').find('.numeros').val(number.substr(0,3) + '__ | __' + number.substr(number.length - 3));
+			  $('#'+tableToApply+' input[value="5"]').closest('tr').find('.numeros').val(number.substr(0,2) + '___ | ___' + number.substr(number.length - 2));
+			  $('#'+tableToApply+' input[value="6"]').closest('tr').find('.numeros').val(number.substr(0,1)+'____ | ____'+ number.substr(number.length - 1));
+			   
+		});
+			 
 		function subirFichero() {
 			return new Promise((resolve, reject) => {
 				let form_data = new FormData();

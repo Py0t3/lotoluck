@@ -4,6 +4,7 @@
 -->
 
 <?php
+	$pagina_activa = 'Primitiva';
 // Obtemos el sorteo que se ha de mostrar
 	$idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
@@ -421,13 +422,13 @@
 							joker = ''
 							break;
 					}
-					$('#'+tableToApply+' input[value="Todas las cifras"]').closest('tr').find('.numeros').val(joker)
-					$('#'+tableToApply+' input[value="6 primeras o últimas cifras"]').closest('tr').find('.numeros').val(joker.substr(0,6) + '_ | _' + joker.substr(joker.length - 6))
-					$('#'+tableToApply+' input[value="5 primeras o últimas cifras"]').closest('tr').find('.numeros').val(joker.substr(0,5) + '__ | __' + joker.substr(joker.length - 5))
-					$('#'+tableToApply+' input[value="4 primeras o últimas cifras"]').closest('tr').find('.numeros').val(joker.substr(0,4) + '___ | ___' + joker.substr(joker.length - 4))
-					$('#'+tableToApply+' input[value="3 primeras o últimas cifras"]').closest('tr').find('.numeros').val(joker.substr(0,3) + '____ | ____' + joker.substr(joker.length - 3))
-					$('#'+tableToApply+' input[value="2 primeras o últimas cifras"]').closest('tr').find('.numeros').val(joker.substr(0,2) + '_____ | _____ ' + joker.substr(joker.length - 2))
-					$('#'+tableToApply+' input[value="la primera o última cifra"]').closest('tr').find('.numeros').val(joker.substr(0,1)+'______ | ______'+ joker.substr(joker.length - 1))
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.numeros').val(joker)
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.numeros').val(joker.substr(0,6) + '_ | _' + joker.substr(joker.length - 6))
+					$('#'+tableToApply+' input[value="3"]').closest('tr').find('.numeros').val(joker.substr(0,5) + '__ | __' + joker.substr(joker.length - 5))
+					$('#'+tableToApply+' input[value="4"]').closest('tr').find('.numeros').val(joker.substr(0,4) + '___ | ___' + joker.substr(joker.length - 4))
+					$('#'+tableToApply+' input[value="5"]').closest('tr').find('.numeros').val(joker.substr(0,3) + '____ | ____' + joker.substr(joker.length - 3))
+					$('#'+tableToApply+' input[value="6"]').closest('tr').find('.numeros').val(joker.substr(0,2) + '_____ | _____ ' + joker.substr(joker.length - 2))
+					$('#'+tableToApply+' input[value="7"]').closest('tr').find('.numeros').val(joker.substr(0,1)+'______ | ______'+ joker.substr(joker.length - 1))
     			});
 				
     		});

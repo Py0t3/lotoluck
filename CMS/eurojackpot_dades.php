@@ -4,6 +4,7 @@
 -->
 
 <?php
+	$pagina_activa = "Eurojackpot";
     $idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms_3.php";

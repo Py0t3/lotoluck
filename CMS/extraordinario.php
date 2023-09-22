@@ -1,6 +1,7 @@
 <!-- Página que nos permite mostrar todos los sorteos - ORDINARIO guardados en la BBDD -->
 
 <?php 
+	$pagina_activa = "Extraordinario";
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms_3.php";
 	header('Content-Type: text/html; charset=utf-8');

@@ -4,7 +4,7 @@
 -->
 
 <?php
-
+	$pagina_activa = "Trio";
 	// Obtenemos el sorteo que se ha de mostrar
 	$idSorteo = $_GET['idSorteo'];
 
@@ -923,16 +923,16 @@
 						break;
 					}
 					
-					$('#'+tableToApply+' input[value="3 números + superTrio"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
-					$('#'+tableToApply+' input[value="3 números   supertrio"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
-					$('#'+tableToApply+' input[value="3 números supertrio"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
-					$('#'+tableToApply+' input[value="3 números"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
-					$('#'+tableToApply+' input[value="3 números"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
-					$('#'+tableToApply+' input[value="2 primeros números"]').closest('tr').find('.acertantes').val(c1+''+c2+'_')
-					$('#'+tableToApply+' input[value="2 últimos números"]').closest('tr').find('.acertantes').val('_'+c2+''+c3)
-					$('#'+tableToApply+' input[value="El primer y el último número"]').closest('tr').find('.acertantes').val(c1+'_'+c3)
-					$('#'+tableToApply+' input[value="El primer número"]').closest('tr').find('.acertantes').val(c1+'__')
-					$('#'+tableToApply+' input[value="El último número"]').closest('tr').find('.acertantes').val('__'+c3)
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.acertantes').val(c1+''+c2+''+c3)
+					$('#'+tableToApply+' input[value="3"]').closest('tr').find('.acertantes').val(c1+''+c2+'_')
+					$('#'+tableToApply+' input[value="4"]').closest('tr').find('.acertantes').val('_'+c2+''+c3)
+					$('#'+tableToApply+' input[value="5"]').closest('tr').find('.acertantes').val(c1+'_'+c3)
+					$('#'+tableToApply+' input[value="6"]').closest('tr').find('.acertantes').val(c1+'__')
+					$('#'+tableToApply+' input[value="7"]').closest('tr').find('.acertantes').val('__'+c3)
 					
 				})
 				function permutator(inputArr) {

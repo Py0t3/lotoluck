@@ -4,6 +4,7 @@
 -->
 
 <?php 
+	$pagina_activa = "Fin de Semana";
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms_3.php";
 	include "../funciones_navegacion_sorteos_cms.php";
@@ -689,16 +690,14 @@
 							serie = ''
 							break;
 					}
-					$('#'+tableToApply+' input[value="5 cifras y Serie"]').closest('tr').find('.series').val(serie)
-					$('#'+tableToApply+' input[value="5 cifras y Serie"]').closest('tr').find('.numeros').val(number)
-					$('#'+tableToApply+' input[value="5 cifras y serie"]').closest('tr').find('.series').val(serie)
-					$('#'+tableToApply+' input[value="5 cifras y serie"]').closest('tr').find('.numeros').val(number)
-					$('#'+tableToApply+' input[value="5 cifras"]').closest('tr').find('.numeros').val(number)
-					$('#'+tableToApply+' input[value="4 ultimas cifras"]').closest('tr').find('.numeros').val('_' + number.substr(number.length - 4))
-					$('#'+tableToApply+' input[value="3 ultimas cifras"]').closest('tr').find('.numeros').val('__' + number.substr(number.length - 3))
-					$('#'+tableToApply+' input[value="2 ultimas cifras"]').closest('tr').find('.numeros').val('___' + number.substr(number.length - 2))
-					$('#'+tableToApply+' input[value="Ultima cifra"]').closest('tr').find('.numeros').val('____'+ number.substr(number.length - 1))
-					$('#'+tableToApply+' input[value="Cifra primera y ultima cifra"]').closest('tr').find('.numeros').val(number.substr(0,1)+' | '+ number.substr(number.length - 1))
+				
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.series').val(serie)
+					$('#'+tableToApply+' input[value="1"]').closest('tr').find('.numeros').val(number)
+					$('#'+tableToApply+' input[value="2"]').closest('tr').find('.numeros').val(number)
+					$('#'+tableToApply+' input[value="3"]').closest('tr').find('.numeros').val('_' + number.substr(number.length - 4))
+					$('#'+tableToApply+' input[value="4"]').closest('tr').find('.numeros').val('__' + number.substr(number.length - 3))
+					$('#'+tableToApply+' input[value="5"]').closest('tr').find('.numeros').val('___' + number.substr(number.length - 2))
+					$('#'+tableToApply+' input[value="6"]').closest('tr').find('.numeros').val('____'+ number.substr(number.length - 1))
 					// $('#'+tableToApply+' .numeros').each(function(i, obj) {
 					// 	switch ($(obj).data('category_id')) {
 					// 		case 59:

@@ -1,6 +1,7 @@
 <!-- Página que nos permite mostrar todos los sorteos - ORDINARIO guardados en la BBDD -->
 
 <?php 
+	$pagina_activa = "Fin de Semana";
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms_3.php";
 	include "../funciones_navegacion_sorteos_cms.php";

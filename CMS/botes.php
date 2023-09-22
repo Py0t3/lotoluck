@@ -3,7 +3,7 @@
 <?php 
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
 	include "../funciones_cms.php";
-	header('Content-Type: text/html; charset=utf-8');
+	
 ?>
 
 <!DOCTYPE html>

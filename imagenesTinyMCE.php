@@ -1,26 +1,22 @@
 <?php
-// Ruta a la carpeta de imágenes en tu servidor externo
-$imagen_ruta = 'https://lotoluck.es/img';
+// URL de la carpeta de imágenes en el servidor externo
+$imagen_url = 'https://lotoluck.es/img';
 
-// Obtener la lista de archivos en la carpeta de imágenes
-$archivos = scandir($imagen_ruta);
+// Realizar una solicitud HTTP para obtener el contenido de la carpeta
+$contenido = file_get_contents($imagen_url);
 
-// Filtrar los archivos para eliminar . y ..
-$archivos = array_diff($archivos, array('.', '..'));
+// Decodificar el contenido como JSON (si es JSON)
+$imagenes = json_decode($contenido);
 
-// Crear una matriz de imágenes con sus URL completas
-$imagenes = [];
-foreach ($archivos as $archivo) {
-    $imagenes[] = $imagen_ruta . '/' . $archivo;
+// Verificar si la decodificación fue exitosa
+if (json_last_error() === JSON_ERROR_NONE) {
+    // Devolver la lista de imágenes como respuesta JSON
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    echo json_encode($imagenes);
+} else {
+    // Manejar el error de decodificación si es necesario
+    header('HTTP/1.1 500 Internal Server Error');
+    echo 'Error al obtener las imágenes.';
 }
-
-// Codificar la matriz de imágenes en formato JSON para enviarla a JavaScript
-$imagenes_json = json_encode($imagenes);
-
-// Configurar encabezados para permitir solicitudes CORS desde tu sitio web
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-
-// Devolver la lista de imágenes como respuesta JSON
-echo $imagenes_json;
 ?>

@@ -4,6 +4,7 @@
 -->
 
 <?php
+	$pagina_activa = "6/49";
 	// Obtenemos el sorteo que se ha de mostrar
 	$idSorteo = $_GET['idSorteo'];
 
