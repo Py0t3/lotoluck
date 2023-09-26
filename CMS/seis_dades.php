@@ -33,11 +33,9 @@
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous">
 		</script>    
-		<!--Script para mostrar el editor de texto>	 --> 
-		 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>	
-		
+		<!--Editor tinyMCE-->
+		<script src="https://cdn.tiny.cloud/1/pt8yljxdfoe66in9tcbr6fmh0vaq2yk4lu0ibxllsvljedgh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+		<script src="../js/tinyMCE.js"></script>
 		<!--paginador-->
 		<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
 		<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>	
@@ -312,7 +310,7 @@
 								if ($idSorteo <> -1) {
 									MostrarTextoBanner($idSorteo);
 								} else {
-									echo '<textarea name="textoBanner" rows="10" cols="90" id="textoBanner" style="margin-top: 6px; width:600px;"> ';echo obtener_ultimo_txtBanner(20); echo '</textarea>';
+									echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';echo obtener_ultimo_txtBanner(20); echo '</textarea>';
 								}
 							?>	
 
@@ -324,7 +322,7 @@
 								if ($idSorteo <> -1) {
 									MostrarComentarios($idSorteo);
 								} else {
-									echo '<textarea name="comentario" rows="10" cols="90" id="comentario" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_comentario(20); echo '</textarea>';
+									echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';echo obtener_ultimo_comentario(20); echo '</textarea>';
 								}
 							?>
 						</div>
@@ -893,8 +891,7 @@
 					// Función que permite guardar los comentarios adicionales del sorteo
 
 					var idSorteo = document.getElementById("r_id").value;
-					let textoBannerEditor = sceditor.instance(textoBanner);
-					let textoBannerHtml = textoBannerEditor.val();
+					var textoBannerHtml = tinymce.get('textoBanner').getContent();
 
 					// Comprobamos si se ha puesto algún texto para el banner
 					if (textoBannerHtml != '') {
@@ -923,8 +920,7 @@
 						});
 					}
 
-					let comentarioEditor = sceditor.instance(comentario);
-					let comentarioHtml = comentarioEditor.val();
+					var comentarioHtml = tinymce.get('comentario').getContent();
 
 					// Comprobamos si se ha puesto algún comentario
 					if (comentarioHtml != '') {
@@ -973,17 +969,6 @@
 				}
 			}
 
-
-			var comentario = document.getElementById('comentario');
-			sceditor.create(comentario, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
-			var textoBanner = document.getElementById('textoBanner');
-			sceditor.create(textoBanner, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
 		</script>
 		<script src="../js/paginador.js" type="text/javascript"></script>	
 	</main>

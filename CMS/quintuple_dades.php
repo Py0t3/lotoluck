@@ -12,29 +12,11 @@
 	header('Content-Type: text/html; charset=utf-8');
 	include "../funciones_navegacion_sorteos_cms.php";
 ?>
-
 <!DOCTYPE html>
-
-	<head>
-
-		<!-- Indicamos el título de la página -->
-		<title> CMS - LOTOLUCK </title>
-
-		<!-- Agregamos la hoja de estilos -->
-		<link rel="stylesheet" type="text/css" href="../CSS/style_CMS_2.css">
-		<link rel="stylesheet" type="text/css" href="../CSS/style_CMS_3.css">
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0-canary.13/tailwind.min.css">
-
-		<!-- Agregamos script para peticiones ajax -->
-		<script
-			  src="https://code.jquery.com/jquery-3.6.0.min.js"
-			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-			  crossorigin="anonymous">
-		</script>       
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
-
-	</head>
+<html>
+	<?php
+        include "head_cms.php";
+	?>
 
 	<body>
 	<?php
@@ -297,7 +279,7 @@
 							if ($idSorteo <> -1) {
 								MostrarTextoBanner($idSorteo);
 							} else {
-								echo '<textarea name="textoBanner" rows="10" cols="90" id="textoBanner" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_txtBanner(11); ;echo '</textarea>';
+								echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_txtBanner(11); ;echo '</textarea>';
 							}
 						?>	
 
@@ -309,7 +291,7 @@
 							if ($idSorteo <> -1) {
 								MostrarComentarios($idSorteo);
 							} else {
-								echo '<textarea name="comentario" rows="10" cols="90" id="comentario" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_comentario(11); ;echo '</textarea>';
+								echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_comentario(11); ;echo '</textarea>';
 							}
 						?>
 					</div>
@@ -397,8 +379,8 @@
 				 return new Promise((resolve, reject) => {
 				// Función que permite guardar los comentarios adicionales del sorteo
 
-				var idSorteo =document.getElementById("id_sorteo").innerHTML;
-				let textoBannerHtml = textoBanner._sceditor.val()
+				var idSorteo =document.getElementById("id_sorteo").value;
+				var textoBannerHtml = tinymce.get('textoBanner').getContent();
 				// Comprovamos si se ha puesto algun texto para el banner
 				if (textoBannerHtml != '')
 				{
@@ -429,7 +411,7 @@
 					
 				}
 
-				let comentarioHtml = comentario._sceditor.val()
+				var comentarioHtml = tinymce.get('comentario').getContent();
 				// Comprovamos si se ha puesto algun comentario
 				if (comentarioHtml != '')
 				{
@@ -881,18 +863,6 @@
 		});       
 
 
-		</script>
-		<script>
-			var comentario = document.getElementById('comentario');
-			sceditor.create(comentario, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
-			var textoBanner = document.getElementById('textoBanner');
-			sceditor.create(textoBanner, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
 		</script>
 	</main>
 	</div>

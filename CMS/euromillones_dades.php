@@ -32,8 +32,9 @@
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous">
 		</script>       
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
+		<!--Editor tinyMCE-->
+		<script src="https://cdn.tiny.cloud/1/pt8yljxdfoe66in9tcbr6fmh0vaq2yk4lu0ibxllsvljedgh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+		<script src="../js/tinyMCE.js"></script>		
 		<script src="../js/funciones_juegos_dades.js"></script>
 
 	</head>
@@ -288,7 +289,7 @@
 							if ($idSorteo <> -1) {
 								MostrarTextoBanner($idSorteo);
 							} else {
-								echo '<textarea name="textoBanner" rows="10" cols="90" id="textoBanner" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_txtBanner(4); echo '</textarea>';
+								echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';echo obtener_ultimo_txtBanner(4); echo '</textarea>';
 							}
 						?>	
 
@@ -300,7 +301,7 @@
 							if ($idSorteo <> -1) {
 								MostrarComentarios($idSorteo);
 							} else {
-								echo '<textarea name="comentario" rows="10" cols="90" id="comentario" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_comentario(4); echo '</textarea>';
+								echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_comentario(4); echo '</textarea>';
 							}
 						?>
 					</div>

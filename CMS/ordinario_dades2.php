@@ -288,7 +288,7 @@
 				if ($idSorteo <> -1) {
 					MostrarTextoBanner($idSorteo);
 				} else {
-					echo '<textarea name="textoBanner" rows="10" cols="90" id="textoBanner" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_txtBanner(12); echo '</textarea>';
+					echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_txtBanner(12); echo '</textarea>';
 				}
 			?>	
 
@@ -300,7 +300,7 @@
 				if ($idSorteo <> -1) {
 					MostrarComentarios($idSorteo);
 				} else {
-					echo '<textarea name="comentario" rows="10" cols="90" id="comentario" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_comentario(12); echo '</textarea>';
+					echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_comentario(12); echo '</textarea>';
 				}
 			?>
 		</div>

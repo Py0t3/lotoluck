@@ -8944,7 +8944,7 @@ function MostrarTextoBanner($idSorteo) {
 		}
 	}
 
-	echo "<textarea class='comentario' rows='10' cols='90' id='textoBanner' name='textoBanner' style='margin-top: 6px; width:600px;'>$cad</textarea>";
+	echo "<textarea id='textoBanner' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
 }
 
 function MostrarComentarios($idSorteo) {
@@ -8977,7 +8977,7 @@ function MostrarComentarios($idSorteo) {
 		}
 	}
 
-	echo "<textarea class='comentario' rows='10' cols='90' id='comentario' name='comentario' style='margin-top: 6px; width:600px;'>$cad</textarea>";
+	echo "<textarea id='comentario' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
 }
 function ActualizarFichero($idSorteo, $nombreFichero, $urlFicheroPDF, $urlFicheroTXT, $borrarFicheroPDF, $borrarFicheroTXT) {
 	$consulta = "SELECT idSorteo FROM ficheros WHERE idSorteo=$idSorteo";

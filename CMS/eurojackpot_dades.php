@@ -12,7 +12,7 @@
 	header('Content-Type: text/html; charset=utf-8');
 	include "../funciones_navegacion_sorteos_cms.php";
 ?>
-
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -31,8 +31,10 @@
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous">
 		</script>       
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></scrip>
+		<!--Editor tinyMCE-->
+		<script src="https://cdn.tiny.cloud/1/pt8yljxdfoe66in9tcbr6fmh0vaq2yk4lu0ibxllsvljedgh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+		<script src="../js/tinyMCE.js"></script>		
+
 
 	</head>
 	<body>
@@ -303,7 +305,7 @@
 						if ($idSorteo <> -1) {
 							MostrarTextoBanner($idSorteo);
 						} else {
-							echo '<textarea name="textoBanner" rows="10" cols="90" id="textoBanner" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_txtBanner(9); echo '</textarea>';
+							echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_txtBanner(9); echo '</textarea>';
 						}
 					?>	
 
@@ -315,7 +317,7 @@
 						if ($idSorteo <> -1) {
 							MostrarComentarios($idSorteo);
 						} else {
-							echo '<textarea name="comentario" rows="10" cols="90" id="comentario" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_comentario(9); echo '</textarea>';
+							echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_comentario(9); echo '</textarea>';
 						}
 					?>
 				</div>
@@ -580,9 +582,8 @@
 				 return new Promise((resolve, reject) => {
 				// Función que permite guardar los comentarios adicionales del sorteo
 
-				var idSorteo =document.getElementById("id_sorteo").innerHTML;
-				let textoBannerHtml = textoBanner._sceditor.val()
-				// Comprovamos si se ha puesto algun texto para el banner
+				var idSorteo =document.getElementById("id_sorteo").value;
+				var textoBannerHtml = tinymce.get('textoBanner').getContent();
 				if (textoBannerHtml != '')
 				{
 					// var datos = [idSorteo, 2, 1, textoBanner];
@@ -612,7 +613,7 @@
 					
 				}
 
-				let comentarioHtml = comentario._sceditor.val()
+				var comentarioHtml = tinymce.get('comentario').getContent();
 				// Comprovamos si se ha puesto algun comentario
 				if (comentarioHtml != '')
 				{

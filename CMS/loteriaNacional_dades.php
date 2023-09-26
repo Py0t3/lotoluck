@@ -12,31 +12,11 @@
 	include "../funciones_navegacion_sorteos_cms.php";
 
 ?>
-
+<!DOCTYPE html>
 <html>
-
-	<head>
-
-		<!-- Indicamos el título de la página -->
-		<title> CMS - LOTOLUCK </title>
-
-		<!-- Agregamos la hoja de estilos -->
-		<link rel="stylesheet" type="text/css" href="../CSS/style_CMS_2.css">
-		<link rel="stylesheet" type="text/css" href="../CSS/style_CMS_3.css">
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0-canary.13/tailwind.min.css">
-
-		<!-- Agregamos script para peticiones ajax -->
-		<script
-			  src="https://code.jquery.com/jquery-3.6.0.min.js"
-			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-			  crossorigin="anonymous">
-		</script>       
-		
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
-
-	</head>
+	<?php
+        include "head_cms.php";
+	?>
 	<body>
 	<?php
         include "../cms_header.php";
@@ -314,7 +294,7 @@
 				if ($idSorteo <> -1) {
 					MostrarTextoBanner($idSorteo);
 				} else {
-					echo '<textarea name="textoBanner" rows="10" cols="90" id="textoBanner" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_txtBanner(1); echo '</textarea>';
+					echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';echo obtener_ultimo_txtBanner(1); echo '</textarea>';
 				}
 			?>	
 
@@ -326,7 +306,7 @@
 				if ($idSorteo <> -1) {
 					MostrarComentarios($idSorteo);
 				} else {
-					echo '<textarea name="comentario" rows="10" cols="90" id="comentario" style="margin-top: 6px; width:600px;">';echo obtener_ultimo_comentario(1); echo '</textarea>';
+					echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_comentario(1); echo '</textarea>';
 				}
 			?>
 		</div>
@@ -526,7 +506,7 @@
 				// Función que permite guardar los comentarios adicionales del sorteo
 
 				var idSorteo =document.getElementById("r_id").value
-				let textoBannerHtml = textoBanner._sceditor.val()
+				var textoBannerHtml = tinymce.get('textoBanner').getContent();
 				// Comprovamos si se ha puesto algun texto para el banner
 				if (textoBannerHtml != '')
 				{
@@ -557,7 +537,7 @@
 
 				}
 
-				let comentarioHtml = comentario._sceditor.val()
+				var comentarioHtml = tinymce.get('comentario').getContent();
 				// Comprovamos si se ha puesto algun comentario
 				if (comentarioHtml != '')
 				{

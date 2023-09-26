@@ -46,8 +46,8 @@ function GuardarComentarios()
 	 return new Promise((resolve, reject) => {
 	// Función que permite guardar los comentarios adicionales del sorteo
 
-	var idSorteo =document.getElementById("id_sorteo").innerHTML;
-	let textoBannerHtml = textoBanner._sceditor.val()
+	var idSorteo =document.getElementById("id_sorteo").value;
+	var textoBannerHtml = tinymce.get('textoBanner').getContent();
 	// Comprovamos si se ha puesto algun texto para el banner
 	if (textoBannerHtml != '')
 	{
@@ -78,7 +78,7 @@ function GuardarComentarios()
 		
 	}
 
-	let comentarioHtml = comentario._sceditor.val()
+	var comentarioHtml = tinymce.get('comentario').getContent();
 	// Comprovamos si se ha puesto algun comentario
 	if (comentarioHtml != '')
 	{
