@@ -15,7 +15,7 @@
 	header('Content-Type: text/html; charset=utf-8');
 	
 ?>
-
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -34,8 +34,9 @@
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous">
 		</script>       
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
+		<!--Editor tinyMCE-->
+		<script src="https://cdn.tiny.cloud/1/pt8yljxdfoe66in9tcbr6fmh0vaq2yk4lu0ibxllsvljedgh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+		<script src="../js/tinyMCE.js"></script>
 
 	</head>
 	<body>
@@ -522,7 +523,7 @@
 			// Función que permite guardar los comentarios adicionales del sorteo
 
 			var idSorteo =document.getElementById("id_sorteo").innerHTML;
-			let textoBannerHtml = textoBanner._sceditor.val()
+			var textoBannerHtml = tinymce.get('comentario').getContent();
 			// Comprovamos si se ha puesto algun texto para el banner
 			if (textoBannerHtml != '')
 			{
@@ -553,7 +554,7 @@
 				
 			}
 
-			let comentarioHtml = comentario._sceditor.val()
+			var comentarioHtml = tinymce.get('comentario').getContent();
 			// Comprovamos si se ha puesto algun comentario
 			if (comentarioHtml != '')
 			{
@@ -779,18 +780,6 @@
 		}    	
 		</script>
 		
-		<script>
-			var comentario = document.getElementById('comentario');
-			sceditor.create(comentario, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
-			var textoBanner = document.getElementById('textoBanner');
-			sceditor.create(textoBanner, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
-		</script>
 	</main>
 	</div>
 	</body>
