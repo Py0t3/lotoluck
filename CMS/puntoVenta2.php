@@ -3,7 +3,7 @@
 -->
 
 <?php
-
+	$idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que nos permiten conectarnos a la BBDD
 	include "../funciones_cms_raquel.php";
 ?>
@@ -90,7 +90,7 @@
 					<td style='text-align:center;'><button id='seleccionar' class='botonGuardar' style='font-size:16px;padding:0.5em;' onclick='guardarProvinciaPoblacion()'>SELEC</button></td>
 				</tr>
 			<?php
-			 seleccionarAdministraciones();
+			 seleccionarAdministraciones($idSorteo,22);
 			 ?>
 			</table>
 		</div>

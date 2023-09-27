@@ -32,10 +32,10 @@
 				<tr>
 					<td class='titulo'> La Grossa - Resultados </td>
 					<td class='titulo'></td>
-					<td style='text-align:right;' class='titulo'><label  id='id_sorteo' style='display:block;'><?php echo $idSorteo; ?></labrl> </td>
+					<td style='text-align:right;' class='titulo'><label  id='' style='display:block;'><?php echo $idSorteo; ?></labrl> </td>
 				</tr>
 			</table>
-
+		<div><input type='text' id='id_sorteo' style='display:none;' value='<?php echo $idSorteo; ?>'></div> 
 		</div>
 		<div style='text-align: right;'>
 			<?php
@@ -82,7 +82,7 @@
 			<script>
 			function openTab(evt, cityName) {
 				
-				var idSorteo = document.getElementById('id_sorteo').innerHTML;
+				var idSorteo = document.getElementById('id_sorteo').value;
 				
 				if(idSorteo!=-1){
 					// Declare all variables
@@ -343,7 +343,7 @@
 					listadoTXT = $('#listadoTXT').prop('files')[0];
 				}
 					let nombreFichero = $('#nombreFichero').val();
-					let idSorteo = document.getElementById("id_sorteo").innerHTML;
+					let idSorteo = document.getElementById("r_id").value;
 					let borrarFicheroPDF = $('#borrarFicheroPDF').is(":checked") == true ? 1 : 0;
 					let borrarFicheroTXT = $('#borrarFicheroTXT').is(":checked") == true ? 1 : 0;             
 					form_data.append('nombreFichero', nombreFichero);
@@ -379,8 +379,9 @@
 				 return new Promise((resolve, reject) => {
 				// Función que permite guardar los comentarios adicionales del sorteo
 
-				var idSorteo =document.getElementById("id_sorteo").value;
+				var idSorteo =document.getElementById("r_id").value;
 				var textoBannerHtml = tinymce.get('textoBanner').getContent();
+				// Comprovamos si se ha puesto algun texto para el banner
 				if (textoBannerHtml != '')
 				{
 					// var datos = [idSorteo, 2, 1, textoBanner];
@@ -411,6 +412,7 @@
 				}
 
 				var comentarioHtml = tinymce.get('comentario').getContent();
+				//alert(comentarioHtml)
 				// Comprovamos si se ha puesto algun comentario
 				if (comentarioHtml != '')
 				{
@@ -438,12 +440,13 @@
 					});
 
 				}
+				resolve(true);
 			 });
 			}
 			function Guardar()
 			{
 				// Función que permite guardar los datos del sorteo de LC - La Grossa
-				var idSorteo = document.getElementById('id_sorteo').value; 
+				var idSorteo = document.getElementById('id_sorteo').value;
 				// Verificamos que se han introducido todos los campos
 				var c1 = document.getElementById("r_c1").value;
 				var c2 = document.getElementById("r_c2").value;
@@ -823,76 +826,7 @@
 				label.style.display='none';
 			}
 			
-			function GuardarComentarios() {
-				return new Promise((resolve, reject) => {
-					// Función que permite guardar los comentarios adicionales del sorteo
-
-					var idSorteo = document.getElementById("r_id").value;
-					let textoBannerEditor = sceditor.instance(textoBanner);
-					let textoBannerHtml = textoBannerEditor.val();
-
-					// Comprobamos si se ha puesto algún texto para el banner
-					if (textoBannerHtml != '') {
-						$.ajax({
-							// Definimos la URL
-							url: "../formularios/comentarios.php",
-							data: {
-								idSorteo: idSorteo,
-								type: 1,
-								texto: textoBannerHtml,
-							},
-							// Indicamos el tipo de petición, como queremos insertar es POST
-							type: "POST",
-
-							success: function (res) {
-								if (res == -1) {
-									alert("No se han podido guardar los comentarios de la casilla texto banner, prueba de nuevo");
-									reject(new Error("Error al guardar los comentarios"));
-								} else {
-									resolve(true);
-								}
-							},
-							error: function () {
-								reject(new Error("Error al subir el fichero"));
-							}
-						});
-					}
-
-					let comentarioEditor = sceditor.instance(comentario);
-					let comentarioHtml = comentarioEditor.val();
-
-					// Comprobamos si se ha puesto algún comentario
-					if (comentarioHtml != '') {
-						
-						$.ajax({
-							// Definimos la URL
-							url: "../formularios/comentarios.php",
-							data: {
-								idSorteo: idSorteo,
-								type: 2,
-								texto: comentarioHtml,
-							},
-							// Indicamos el tipo de petición, como queremos insertar es POST
-							type: "POST",
-
-							success: function (res) {
-								
-								if (res == -1) {
-									alert("No se han podido guardar los comentarios de la casilla comentario, prueba de nuevo");
-									reject(new Error("Error al guardar los comentarios"));
-								} else {
-									resolve(true);
-								}
-							},
-							error: function () {
-								reject(new Error("Error al guardar los comentarios"));
-							}
-						});
-					} else {
-						resolve(true); // No se proporcionó ningún comentario, resolver inmediatamente
-					}
-				});
-			}
+			
 
 			
 			

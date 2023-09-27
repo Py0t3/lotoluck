@@ -305,7 +305,7 @@
 						if ($idSorteo <> -1) {
 							MostrarTextoBanner($idSorteo);
 						} else {
-							echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_txtBanner(9); echo '</textarea>';
+							echo '<textarea id="textoBanner" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_txtBanner(16); echo '</textarea>';
 						}
 					?>	
 
@@ -317,7 +317,7 @@
 						if ($idSorteo <> -1) {
 							MostrarComentarios($idSorteo);
 						} else {
-							echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_comentario(9); echo '</textarea>';
+							echo '<textarea id="comentario" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_comentario(16); echo '</textarea>';
 						}
 					?>
 				</div>
@@ -582,7 +582,7 @@
 				 return new Promise((resolve, reject) => {
 				// Función que permite guardar los comentarios adicionales del sorteo
 
-				var idSorteo =document.getElementById("id_sorteo").value;
+				var idSorteo =document.getElementById("r_id").value;
 				var textoBannerHtml = tinymce.get('textoBanner').getContent();
 				if (textoBannerHtml != '')
 				{
@@ -641,6 +641,7 @@
 					});
 
 				}
+				resolve(true);
 			 });
 			}
 
@@ -824,18 +825,7 @@
 			});       
 						
 		</script>
-		<script>
-			var comentario = document.getElementById('comentario');
-			sceditor.create(comentario, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
-			var textoBanner = document.getElementById('textoBanner');
-			sceditor.create(textoBanner, {
-				format: 'bbcode',
-				style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-			});
-		</script>
+		
 	</main>
 	</div>
 	</body>

@@ -528,7 +528,7 @@
 				 return new Promise((resolve, reject) => {
 				// Función que permite guardar los comentarios adicionales del sorteo
 
-				var idSorteo =document.getElementById("id_sorteo").value;
+				var idSorteo =document.getElementById("r_id").value;
 				var textoBannerHtml = tinymce.get('textoBanner').getContent();
 				// Comprovamos si se ha puesto algun texto para el banner
 				if (textoBannerHtml != '')
@@ -588,6 +588,7 @@
 					});
 
 				}
+				resolve(true);
 			 });
 			}
 

@@ -60,10 +60,10 @@
 					<tr>
 						<td class='titulo'> LA 6/49 - Resultados </td>
 						<td class='titulo'></td>
-						<td style='text-align:right;' class='titulo'><label  id='id_sorteo' style='display:block;'><?php echo $idSorteo; ?></labrl> </td>
+						<td style='text-align:right;' class='titulo'><label  id='' style='display:block;'><?php echo $idSorteo; ?></labrl> </td>
 					</tr>
 				</table>
-
+		<div><input type='text' id='id_sorteo' style='display:none;' value='<?php echo $idSorteo; ?>'></div> 
 		</div>
 		
 		<div style='text-align: right;'>
@@ -423,7 +423,7 @@
 				 return new Promise((resolve, reject) => {
 				// Función que permite guardar los comentarios adicionales del sorteo
 
-				var idSorteo =document.getElementById("id_sorteo").innerHTML;
+				var idSorteo =document.getElementById("r_id").value;
 				let textoBannerHtml = textoBanner._sceditor.val()
 				// Comprovamos si se ha puesto algun texto para el banner
 				if (textoBannerHtml != '')
@@ -483,11 +483,12 @@
 					});
 
 				}
+				resolve(true);
 			 });
 			}
 			function Guardar()
 			{
-				var idSorteo = document.getElementById('id_sorteo').innerHTML;
+				var idSorteo = document.getElementById('id_sorteo').value;
 				//alert(idSorteo);
 				// Función que permite guardar los datos del sorteo de LC - 6/49
 

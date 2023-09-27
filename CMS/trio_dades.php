@@ -57,10 +57,10 @@
 					<tr>	
 						<td class="titulo"> Trio - Resultados </td>
 						<td class='titulo'></td>
-						<td style='text-align:right;' class='titulo'><label  id='id_sorteo' style='display:block;'><?php echo $idSorteo; ?></labrl> </td>
+						<td style='text-align:right;' class='titulo'><label  id='' style='display:block;'><?php echo $idSorteo; ?></labrl> </td>
 					</tr>
 				</table>
-
+				<div><input type='text' id='id_sorteo' style='display:none;' value='<?php echo $idSorteo; ?>'></div> 
 			</div>
 			
 			<div style='text-align: right;'>
@@ -951,16 +951,7 @@
 					return permute(inputArr);
 				}
 			
-				var comentario = document.getElementById('comentario');
-				sceditor.create(comentario, {
-					format: 'bbcode',
-					style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-				});
-				var textoBanner = document.getElementById('textoBanner');
-				sceditor.create(textoBanner, {
-					format: 'bbcode',
-					style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-				});
+			
 			</script>
 	</main>
 	</div>
